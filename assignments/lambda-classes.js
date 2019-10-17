@@ -36,3 +36,13 @@ const Instructor2 = new Instructor (`Alex`, 28,`California`, `Android`, `React`,
 console.log(Instructor1.demo());
 console.log(Instructor2.grade());
 
+// This is the student class
+class Student extends Person {
+    constructor (name, age, location, previousBackground, className, favSubjects){
+        super(name, age, location);
+        this.listsSubjects = listsSubjects;
+        this.PRAssignment = PRAssignment;
+        this.sprintChallenge = this.sprintChallenge;
+
+    }
+}
