@@ -67,7 +67,8 @@ class Person {
     return `${this.name}, ${this.age}`;
   }
 }
-console.log(Person.eat);
+Person.eat();
+console.log(Person.eat());
 
 /*
     TASK 2
@@ -102,6 +103,9 @@ class Car {
     }
   }
 }
+Car.fill(gallons);
+console.log(Car.fill());
+
 
 /*
     TASK 3
@@ -112,20 +116,14 @@ class Car {
   */
 
 class Baby extends Person {
-    constructor (name, favoriteToy){
-        super(name, favoriteToy); 
-        this.favoriteToy = favoriteToy;
-
-    }
-    play() {
-        return ` Playing with ${this.favoriteToy}`;
-      };
-  
+  constructor(name, favoriteToy) {
+    super(name, favoriteToy);
+    this.favoriteToy = favoriteToy;
+  }
+  play() {
+    return ` Playing with ${this.favoriteToy}`;
+  }
 }
-
-
-
-
 
 /* 
     TASK 4
