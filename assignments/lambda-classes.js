@@ -24,10 +24,10 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    return `Today we are learning about {subject}`;
+    return `Today we are learning about ${subject}`;
   }
-  grade(student) {
-    return `{student.name} receives a perfect score on {subject}`;
+  grade(student, favSubjects) {
+    return `${student.name} receives a perfect score on ${student.favSubjects}`;
   }
 }
 const Instructor1 = new Instructor(
@@ -46,8 +46,8 @@ const Instructor2 = new Instructor(
   `React`,
   `I love you all`
 );
-console.log(Instructor1.demo());
-console.log(Instructor2.grade());
+console.log(Instructor1.demo(`JavaScript`));
+
 
 // This is the student class
 class Student extends Person {
@@ -77,25 +77,40 @@ const student1 = new Student(
   `React Hooks`
 );
 console.log(student1.sprintChallenge());
+console.log(Instructor2.grade(student1, `subject`));
 
 // This is the Project Manager class
-class ProjectManager extends Instructor{
-    constructor(name, age, location, specialty, favLang, catchPhrase,gradClassName,favInstructor){
-        super(name, age, location, specialty, favLang, catchPhrase);
-        this.gradClassName = gradClassName;
-        this.favInstructor = favInstructor;
-    }
-standUp(slackChannel){
+class ProjectManager extends Instructor {
+  constructor(
+    name,
+    age,
+    location,
+    specialty,
+    favLang,
+    catchPhrase,
+    gradClassName,
+    favInstructor
+  ) {
+    super(name, age, location, specialty, favLang, catchPhrase);
+    this.gradClassName = gradClassName;
+    this.favInstructor = favInstructor;
+  }
+  standUp(slackChannel) {
     return `{name} announces to {channel}, @channel standby times!`;
-
+  }
+  debugsCode(student) {
+    return `${this.name} debugs ${student.name}'s code on ${student.favSubjects}`;
+  }
 }
-debugsCode(){
-    return `{name} debugs {student.name}'s code on {subject}`;
-
-}
-}
-const ProjectManager1 = new ProjectManager (`Tigran`, 30 , `Romania`, `Redux`, `Catch ya!`, `webEU4_Tigran`, `Sean`);
-console.log(ProjectManager1.debugsCode());
-
+const ProjectManager1 = new ProjectManager(
+  `Tigran`,
+  30,
+  `Romania`,
+  `Redux`,
+  `Catch ya!`,
+  `webEU4_Tigran`,
+  `Sean`
+);
+console.log(ProjectManager1.debugsCode(student1));
 
 
