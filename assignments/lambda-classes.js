@@ -24,25 +24,78 @@ class Instructor extends Person {
   }
 
   demo(subject) {
-    return `Today we are learning about ${subject}`;
+    return `Today we are learning about {subject}`;
   }
-  grade (student){
-      return `${student.name} receives a perfect score on ${subject}`;
-
+  grade(student) {
+    return `{student.name} receives a perfect score on {subject}`;
   }
 }
-const Instructor1 = new Instructor (`Gabriel`, 42 , `Madrid`, `Redux`, `Python`, `Don't forget the homies` )
-const Instructor2 = new Instructor (`Alex`, 28,`California`, `Android`, `React`, `I love you all` )
+const Instructor1 = new Instructor(
+  `Gabriel`,
+  42,
+  `Madrid`,
+  `Redux`,
+  `Python`,
+  `Don't forget the homies`
+);
+const Instructor2 = new Instructor(
+  `Alex`,
+  28,
+  `California`,
+  `Android`,
+  `React`,
+  `I love you all`
+);
 console.log(Instructor1.demo());
 console.log(Instructor2.grade());
 
 // This is the student class
 class Student extends Person {
-    constructor (name, age, location, previousBackground, className, favSubjects){
-        super(name, age, location);
-        this.listsSubjects = listsSubjects;
-        this.PRAssignment = PRAssignment;
-        this.sprintChallenge = this.sprintChallenge;
-
-    }
+  constructor(name, age, location, previousBackground, className, favSubjects) {
+    super(name, age, location);
+    this.previousBackground = previousBackground;
+    this.className = className;
+    this.favSubjects = favSubjects;
+  }
+  listsSubjects() {
+    return `I love React Hooks`;
+  }
+  PRAssignment() {
+    return `student.name has submitted a PR for {subject}`;
+  }
+  sprintChallenge(subject) {
+    return `student.name has begun sprint challenge on {subject}`;
+  }
 }
+
+const student1 = new Student(
+  `Babatunde`,
+  27,
+  `Lagos`,
+  `Babatunde is a former banker`,
+  `WEBEU4`,
+  `React Hooks`
+);
+console.log(student1.sprintChallenge());
+
+// This is the Project Manager class
+class ProjectManager extends Instructor{
+    constructor(name, age, location, specialty, favLang, catchPhrase,gradClassName,favInstructor){
+        super(name, age, location, specialty, favLang, catchPhrase);
+        this.gradClassName = gradClassName;
+        this.favInstructor = favInstructor;
+    }
+standUp(slackChannel){
+    return `{name} announces to {channel}, @channel standby times!`;
+
+}
+debugsCode(){
+    return `{name} debugs {student.name}'s code on {subject}`;
+
+}
+}
+const ProjectManager1 = new ProjectManager (`Tigran`, 30 , `Romania`, `Redux`, `Catch ya!`, `webEU4_Tigran`, `Sean`);
+console.log(ProjectManager1.debugsCode());
+
+
+
