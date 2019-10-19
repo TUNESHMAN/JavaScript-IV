@@ -63,8 +63,8 @@ class Student extends Person {
   PRAssignment() {
     return `student.name has submitted a PR for {subject}`;
   }
-  sprintChallenge(subject) {
-    return `student.name has begun sprint challenge on {subject}`;
+  sprintChallenge(student) {
+    return `${student.name} has begun sprint challenge on ${student.favSubjects}`;
   }
 }
 
@@ -76,7 +76,7 @@ const student1 = new Student(
   `WEBEU4`,
   `React Hooks`
 );
-console.log(student1.sprintChallenge());
+console.log(student1.sprintChallenge(student1));
 console.log(Instructor2.grade(student1, `subject`));
 
 // This is the Project Manager class
